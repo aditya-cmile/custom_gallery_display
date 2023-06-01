@@ -12,7 +12,13 @@ dependencies:
     sdk: flutter
   photo_manager: ^2.2.1
   shimmer: ^2.0.0
-  image_crop: ^0.4.1
+
+  #image_crop: ^0.4.1 Temporary added to resolve the dependency causing issue
+  #image_crop-0.4.1/lib/src/crop.dart:63:68:
+  #Error: The class 'Drag' can't be used as a mixin because it isn't a mixin class nor a mixin.
+  image_crop:
+    git:
+      url: https://github.com/tsafundzic/image_crop.git
   camera: ^0.10.0+1
   image: ^3.2.0
   video_player: ^2.4.5
@@ -22,3 +28,4 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_lints: ^2.0.0
+publish_to: none
