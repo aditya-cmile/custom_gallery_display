@@ -85,6 +85,7 @@ class _ImagesViewPageState extends State<ImagesViewPage>
   double scrollPixels = 0.0;
   bool isScrolling = false;
   bool noImages = false;
+  bool isLoading = false;
   final noDuration = ValueNotifier(false);
   int indexOfLatestImage = -1;
 
@@ -271,7 +272,7 @@ class _ImagesViewPageState extends State<ImagesViewPage>
             },
           );
         } else {
-          return loadingWidget();
+          return isLoading == true ? loadingWidget() : loadingWidget();
         }
       },
     );
