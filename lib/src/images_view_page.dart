@@ -85,7 +85,6 @@ class _ImagesViewPageState extends State<ImagesViewPage>
   double scrollPixels = 0.0;
   bool isScrolling = false;
   bool noImages = false;
-  bool isLoading = false;
   final noDuration = ValueNotifier(false);
   int indexOfLatestImage = -1;
 
@@ -147,7 +146,7 @@ class _ImagesViewPageState extends State<ImagesViewPage>
         noImages = false;
       }
       List<AssetEntity> media =
-          await albums[0].getAssetListPaged(page: currentPageValue, size: 16);
+          await albums[0].getAssetListPaged(page: currentPageValue, size: 40);
       List<FutureBuilder<Uint8List?>> temp = [];
       List<File?> imageTemp = [];
 
@@ -272,7 +271,7 @@ class _ImagesViewPageState extends State<ImagesViewPage>
             },
           );
         } else {
-          return isLoading == true ? loadingWidget() : loadingWidget();
+          return loadingWidget();
         }
       },
     );
