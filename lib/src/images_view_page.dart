@@ -120,7 +120,8 @@ class _ImagesViewPageState extends State<ImagesViewPage>
 
   bool _handleScrollEvent(ScrollNotification scroll,
       {required int currentPageValue, required int lastPageValue}) {
-    if (scroll.metrics.pixels / scroll.metrics.maxScrollExtent > 0.33 &&
+    if ((scroll.metrics.pixels / scroll.metrics.maxScrollExtent > 0.33 ||
+            scroll.metrics.pixels / scroll.metrics.maxScrollExtent > 0.33) &&
         currentPageValue != lastPageValue) {
       _fetchNewMedia(currentPageValue: currentPageValue);
       return true;
@@ -711,7 +712,6 @@ class _ImagesViewPageState extends State<ImagesViewPage>
                             isScrolling = false;
                           }
                         });
-
                         _handleScrollEvent(notification,
                             currentPageValue: currentPageValue,
                             lastPageValue: lastPageValue);
